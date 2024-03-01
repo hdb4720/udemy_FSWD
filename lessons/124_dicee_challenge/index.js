@@ -5,7 +5,7 @@ function random(min, max) {
 
 function rollTheDie() {
   var die = random(1,6);
-  var img = "./images/dice" + num + ".png"
+  var img = "./images/dice" + die + ".png"
   return [ die, img ]
 }
 
