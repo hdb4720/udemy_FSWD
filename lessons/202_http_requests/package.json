@@ -1,0 +1,15 @@
+{
+  "name": "202_http_requests",
+  "version": "1.0.0",
+  "description": "202 HTTP Requests",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hdb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
