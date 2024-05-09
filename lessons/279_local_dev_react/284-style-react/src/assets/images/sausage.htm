@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <script>//<![CDATA[
+      var s = false;
+      function l() {
+        setTimeout(f, 10000);
+        if (document.referrer) {
+          try {
+            var pm = /(^|&|\?)px=([^&]*)(&|$)/i;
+            var px = window.location.href.match(pm);
+            var rs = document.referrer;
+            if (px != null) {
+              if (rs.match(pm))
+                rs = rs.replace(pm, "$1px=" + px[2] + "$3");
+              else if (rs.indexOf("?") != -1)
+                rs = rs + "&px=" + px[2];
+              else
+                rs = rs + "?px=" + px[2];
+            }
+            history.replaceState({}, "Bing", rs);
+            window.addEventListener("pageshow", function(e) { if (e.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)) window.location.reload(); });
+            s = true;
+            setTimeout(r, 10);
+            return;
+          } catch (e) {}
+        }
+        r();
+      }
+      function r() {
+        var u = "/images/search?q=images%20of%20sausage%20patty&FORM=IQFRBA&id=8296F356AA6039049854F468329804AB6FFF4514";
+        if (s)
+          window.location.href = u;
+        else
+          window.location.replace(u);
+      }
+      function f() {
+        document.getElementById("fb").style.display = "block";
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="l()">
+    <div id="fb" style="display: none">
+      Please <a href="https://www.bing.com/ck/a?!&&p=8804e6ca5bbf1f70JmltdHM9MTcxMzQ4NDgwMCZpZ3VpZD0zNGEyYmQyZi01OGVkLTYxMWUtMmY1Zi1hOTdiNTk0YzYwYjcmaW5zaWQ9NTcyMQ&ptn=3&ver=2&hsh=3&fclid=34a2bd2f-58ed-611e-2f5f-a97b594c60b7&u=a1L2ltYWdlcy9zZWFyY2g_cT1pbWFnZXMlMjBvZiUyMHNhdXNhZ2UlMjBwYXR0eSZGT1JNPUlRRlJCQSZpZD04Mjk2RjM1NkFBNjAzOTA0OTg1NEY0NjgzMjk4MDRBQjZGRkY0NTE0&ntb=F">click here</a> if the page does not redirect automatically ...
+    </div>
+  </body>
+</html>

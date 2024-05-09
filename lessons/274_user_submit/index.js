@@ -63,7 +63,7 @@ app.get("/secrets", async (req, res) => {
   if (req.isAuthenticated()) {
     try {
       const result = await db.query(
-        "SELECT secret FROM users WHERE email = $1",
+        `SELECT secret FROM users WHERE email = $1`,
         [req.user.email]
       );
       console.log(result);
@@ -152,7 +152,7 @@ app.post("/submit", async function (req, res) {
   const submittedSecret = req.body.secret;
   console.log(req.user);
   try {
-    await db.query("UPDATE users SET secret = $1 WHERE email = $2", [
+    await db.query(`UPDATE users SET secret = $1 WHERE email = $2`, [
       submittedSecret,
       req.user.email,
     ]);
@@ -231,5 +231,5 @@ passport.deserializeUser((user, cb) => {
 });
 
 app.listen(port, () => {
-  console.log("Server running on port ${port}");
+  console.log(`Server running on port ${port}`);
 });
